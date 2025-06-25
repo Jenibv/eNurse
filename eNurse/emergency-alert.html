@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Alert - eNurse</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+        <!-- Add Icon -->
+        <div class="add-icon" onclick="openAddForm()">
+            <i class="fas fa-plus"></i>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Emergency Alert</h1>
+        <p>View and manage student emergency contact information.</p>
+
+        <!-- Student List Table -->
+        <div class="table-container">
+            <table class="student-table">
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Parent Contact Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dummy Data Rows -->
+                    <tr>
+                        <td>001</td>
+                        <td>John Doe</td>
+                        <td>+1234567890</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Jane Smith</td>
+                        <td>+0987654321</td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Alice Johnson</td>
+                        <td>+1122334455</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Add Contact Form (Hidden by Default) -->
+    <div id="add-form" class="add-form">
+        <div class="form-container">
+            <h2>Add New Contact</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="student-id">Student ID:</label>
+                    <input type="text" id="student-id" name="student-id" required>
+                </div>
+                <div class="form-group">
+                    <label for="student-name">Student Name:</label>
+                    <input type="text" id="student-name" name="student-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="parent-number">Parent Contact Number:</label>
+                    <input type="text" id="parent-number" name="parent-number" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Add Contact</button>
+                    <button type="button" onclick="closeAddForm()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 eNurse. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Add Form -->
+    <script>
+        function openAddForm() {
+            document.getElementById('add-form').style.display = 'flex';
+        }
+
+        function closeAddForm() {
+            document.getElementById('add-form').style.display = 'none';
+        }
+
+        // Handle form submission
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get form values
+            const studentId = document.getElementById('student-id').value;
+            const studentName = document.getElementById('student-name').value;
+            const parentNumber = document.getElementById('parent-number').value;
+
+            // Add new row to the table
+            const tableBody = document.querySelector('.student-table tbody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${studentId}</td>
+                <td>${studentName}</td>
+                <td>${parentNumber}</td>
+            `;
+            tableBody.appendChild(newRow);
+
+            // Close the form
+            closeAddForm();
+
+            // Clear the form
+            document.getElementById('contact-form').reset();
+        });
+    </script>
+</body>
+</html>

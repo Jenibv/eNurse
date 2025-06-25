@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Entries - eNurse</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Overlay -->
+    <div class="background-overlay"></div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="admin -dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="dashboard">
+            <h1>All Entries (2016 - Present)</h1>
+            <button onclick="location.href='admin-dashboard.html'">Back to Dashboard</button>
+
+            <!-- Scrollable Table Container -->
+            <div class="table-container">
+                <table class="entries-table">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Date Accessed</th>
+                            <th>Duration (minutes)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dummy Data Rows (100 entries) -->
+                        <script>
+                            // Function to generate dummy data
+                            function generateDummyData() {
+                                const names = ["John Doe", "Jane Smith", "Alice Johnson", "Bob Brown", "Charlie Davis"];
+                                const roles = ["Student", "Nurse", "Admin"];
+                                const tableBody = document.querySelector('.entries-table tbody');
+
+                                for (let i = 1; i <= 100; i++) {
+                                    const randomName = names[Math.floor(Math.random() * names.length)];
+                                    const randomRole = roles[Math.floor(Math.random() * roles.length)];
+                                    const randomDate = `2016-${Math.floor(Math.random() * 12) + 1}-${Math.floor(Math.random() * 28) + 1}`;
+                                    const randomDuration = Math.floor(Math.random() * 60) + 1;
+
+                                    const row = document.createElement('tr');
+                                    row.innerHTML = `
+                                        <td>${i}</td>
+                                        <td>${randomName}</td>
+                                        <td>${randomRole}</td>
+                                        <td>${randomDate}</td>
+                                        <td>${randomDuration}</td>
+                                    `;
+                                    tableBody.appendChild(row);
+                                }
+                            }
+
+                            // Generate dummy data when the page loads
+                            generateDummyData();
+                        </script>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 eNurse. All rights reserved.</p>
+    </footer>
+</body>
+</html>

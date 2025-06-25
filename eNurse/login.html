@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - eNurse</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+   
+      <!-- Home Button -->
+    <div class="home-button-container">
+        <a href="index.html" class="home-button">Home</a>
+    </div>
+     <!-- Split Screen Container -->
+    <div class="split-screen">
+        <!-- Left Side: Login Form -->
+        <div class="left-side">
+            <section class="login-section">
+                <h1>Login</h1>
+                <form action="redirect-dashboard.html" method="GET" id="login-form">
+                    <label for="role">Select Role:</label>
+                    <select name="role" id="role" required>
+                        <option value="admin">Admin</option>
+                        <option value="nurse">Nurse</option>
+                        <option value="student">Student</option>
+                    </select>
+                    <button type="submit">Login</button>
+                </form>
+            </section>
+        </div>
+
+        <!-- Right Side: Background Image -->
+        <div class="right-side">
+            <div class="image-overlay"></div> <!-- Overlay for better readability -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="login-footer">
+        <p>&copy; 2025 eNurse . All rights reserved.</p>
+    </footer>
+
+    <!-- Script to redirect based on the role -->
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            const role = document.getElementById("role").value;
+            
+            // Redirect to the correct dashboard based on the selected role
+            if (role === "admin") {
+                window.location.href = "admin-dashboard.html";
+            } else if (role === "nurse") {
+                window.location.href = "nurse-dashboard.html";
+            } else if (role === "student") {
+                window.location.href = "student-dashboard.html";
+            }
+        });
+    </script>
+</body>
+</html>

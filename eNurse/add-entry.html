@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Entry - Nurse</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="nurse-dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Add New Entry</h1>
+        <p>Nurse can add new patient treatment records here.</p>
+        <section class="add-entry">
+            <h2>Add Student Health Entry</h2>
+            <form id="add-entry-form">
+                <!-- Student ID -->
+                <div class="form-group">
+                    <label for="student-id">Student ID:</label>
+                    <input type="text" id="student-id" name="student-id" required>
+                </div>
+
+                <!-- Disease -->
+                <div class="form-group">
+                    <label for="disease">Disease/Condition:</label>
+                    <input type="text" id="disease" name="disease" required>
+                </div>
+
+                <!-- Medication Prescribed -->
+                <div class="form-group">
+                    <label for="medication">Medication Prescribed:</label>
+                    <input type="text" id="medication" name="medication" required>
+                </div>
+
+                <!-- Duration of Visit -->
+                <div class="form-group">
+                    <label for="duration">Duration of Visit (in minutes):</label>
+                    <input type="number" id="duration" name="duration" required>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group">
+                    <button type="submit">Add Entry</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 eNurse. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - eNurse</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <header>
+        <nav>
+            <ul>
+                <h1>Admin Dashboard</h1>
+                <div class="home-button-container">
+                    <a href="login.html" class="login-button">Login</a>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="dashboard">
+            <h1>Admin Dashboard</h1>
+            <button onclick="location.href='monthly-summary.html'">View Monthly Summary</button>
+            <button onclick="location.href='all-entries.html'">View All Entries</button>
+            <button onclick="logout()">Logout</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 eNurse. All rights reserved.</p>
+    </footer>
+    <script>
+        if (!sessionStorage.getItem("adminLoggedIn")) {
+            window.location.href = "admin-login.html";
+        }
+        function logout() {
+            sessionStorage.removeItem("adminLoggedIn");
+            window.location.href = "admin-login.html"; // Redirect to login page
+        }
+    </script>
+</body>
+</html>

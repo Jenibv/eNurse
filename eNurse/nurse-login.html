@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurse Login - eNurse</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+
+<div class="login-container">
+    <h1>Nurse Login</h1>
+    <form id="nurse-login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+    <p id="error-message" style="color: red; display: none;">Invalid credentials. Try again.</p>
+</div>
+
+<script>
+    document.getElementById("nurse-login-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+        
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        
+        // Simple authentication check (Replace with real authentication)
+        if (username === "nurse" && password === "nurse123") {
+            sessionStorage.setItem("nurseLoggedIn", "true");
+            window.location.href = "nurse-dashboard.html"; // Redirect to dashboard
+        } else {
+            document.getElementById("error-message").style.display = "block";
+        }
+    });
+</script>
+
+</body>
+</html>

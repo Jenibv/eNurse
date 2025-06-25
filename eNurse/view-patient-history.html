@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student History - eNurse</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="nurse-dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Student History</h1>
+        <p>View the health history of students, including allergies, diseases, and visit frequency.</p>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search by Student ID or Name">
+            <button onclick="searchStudent()">Search</button>
+        </div>
+
+        <!-- Student History Table -->
+        <div class="table-container">
+            <table class="student-history-table">
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Allergies</th>
+                        <th>Diseases</th>
+                        <th>Visit Frequency</th>
+                        <th>Last Visit Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dummy Data Rows -->
+                    <tr>
+                        <td>001</td>
+                        <td>John Doe</td>
+                        <td>Peanuts, Pollen</td>
+                        <td>Asthma</td>
+                        <td>5 times/month</td>
+                        <td>2023-10-15</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Jane Smith</td>
+                        <td>None</td>
+                        <td>None</td>
+                        <td>2 times/month</td>
+                        <td>2023-10-10</td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Alice Johnson</td>
+                        <td>Dust</td>
+                        <td>Migraine</td>
+                        <td>3 times/month</td>
+                        <td>2023-10-05</td>
+                    </tr>
+                    <tr>
+                        <td>004</td>
+                        <td>Bob Brown</td>
+                        <td>None</td>
+                        <td>Diabetes</td>
+                        <td>4 times/month</td>
+                        <td>2023-09-30</td>
+                    </tr>
+                    <tr>
+                        <td>005</td>
+                        <td>Charlie Davis</td>
+                        <td>Shellfish</td>
+                        <td>None</td>
+                        <td>1 time/month</td>
+                        <td>2023-09-25</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 eNurse. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Search Functionality -->
+    <script>
+        function searchStudent() {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const rows = document.querySelectorAll('.student-history-table tbody tr');
+
+            rows.forEach(row => {
+                const studentId = row.cells[0].textContent.toLowerCase();
+                const studentName = row.cells[1].textContent.toLowerCase();
+
+                if (studentId.includes(searchTerm) || studentName.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
