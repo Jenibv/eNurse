@@ -1,2 +1,2 @@
 # eNurse
-The eNurse System is a smart, digital healthcare solution designed to streamline nursing workflows and manage medical records efficiently. Developed using  HTML, CSS, and JavaScript.
+eNurse is a platform designed to provide healthcare services to educational institutions. We help manage student health records, medications, and emergency contacts efficiently. Developed using  HTML, CSS, and JavaScript.
